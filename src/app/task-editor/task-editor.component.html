@@ -1,7 +1,7 @@
 <div class="wrapper" *ngIf="task && task.id">
     <div class="header">
 		<span class="edit-task">
-			<span class="task-id">№ {{task.id}}</span>
+			<span class="task-id">№ {{task.id | idTemplate}}</span>
 			<span class="task-name">{{task.name}}</span>
 		</span>
         <img class="close-button" (click)="close()" src="../assets/images/close.png" />

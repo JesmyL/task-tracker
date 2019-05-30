@@ -20,6 +20,7 @@ import {TaskEditorComponent} from './task-editor/task-editor.component';
 
 import {SimpleNotificationsModule} from 'angular2-notifications';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {IdTempltePipe} from './pipes/id-template.pipe';
 
 const appRoutes: Routes = [
     {
@@ -75,6 +76,8 @@ const appRoutes: Routes = [
         ActivesComponent,
         SettingsComponent,
         TaskEditorComponent,
+
+        IdTempltePipe,
     ],
     imports: [
         RouterModule.forRoot(appRoutes),

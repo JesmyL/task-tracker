@@ -19,7 +19,7 @@
         <tr *ngFor="let task  of tasks" class="tasks-heads" (click)="editTask(task.id)">
             <td class="id-cell cell">
                 <div class="priority-line" [style.backgroundColor]="priorityRgb(task.priorityId)"></div>
-                {{task.id}}
+                {{task.id | idTemplate}}
             </td>
             <td class="name-cell cell">
                 <div class="name-cell-container">{{task.name}}</div>
