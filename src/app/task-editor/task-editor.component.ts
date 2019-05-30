@@ -1,8 +1,9 @@
-import {Component, ElementRef, ViewChild, OnDestroy} from '@angular/core';
+import {Component, OnDestroy} from '@angular/core';
 import {ApiService} from '../api.service';
 import {TaskDto, Prop} from '../api.model';
 import {switchMap, takeUntil, filter} from 'rxjs/operators';
 import {of, Subject} from 'rxjs';
+import {NotificationsService} from 'angular2-notifications';
 
 @Component({
     selector: 'app-task-editor',
@@ -19,7 +20,8 @@ export class TaskEditorComponent implements OnDestroy {
 
     private _destroy$: Subject<void> = new Subject();
 
-    constructor(private _apiService: ApiService) {
+    constructor(private _apiService: ApiService,
+                private _notificationsService: NotificationsService) {
         this._apiService.editTask$
             .pipe(
                 switchMap((taskId: number) => {
@@ -71,6 +73,12 @@ export class TaskEditorComponent implements OnDestroy {
     create(name, description) {
         if (name && description) {
             this._apiService.sendNewTask$(name, description).subscribe();
+        } else {
+            this._notificationsService.error(
+                'Ошибка ввода данных',
+                `Заполните, пожалуйста${!name ? ` поле "Название"` : ''}${!name && !description ? ' и' : ''}${!description ? ' поле "Описание"' : ''}!`,
+                {timeOut: 5000}
+                );
         }
     }
 

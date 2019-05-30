@@ -18,6 +18,9 @@ import {ActivesComponent} from './actives-page/actives-page.component';
 import {SettingsComponent} from './settings-page/settings-page.component';
 import {TaskEditorComponent} from './task-editor/task-editor.component';
 
+import {SimpleNotificationsModule} from 'angular2-notifications';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 const appRoutes: Routes = [
     {
         path: 'brand',
@@ -74,16 +77,14 @@ const appRoutes: Routes = [
         TaskEditorComponent,
     ],
     imports: [
-        RouterModule.forRoot(
-            appRoutes,
-        ),
+        RouterModule.forRoot(appRoutes),
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
+        BrowserAnimationsModule,
+        SimpleNotificationsModule.forRoot(),
     ],
-    providers: [
-        ApiService
-    ],
+    providers: [ApiService],
     bootstrap: [AppComponent]
 })
 export class AppModule {
