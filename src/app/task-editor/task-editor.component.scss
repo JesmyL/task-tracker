@@ -81,7 +81,6 @@
     }
 
     > .comment-block {
-      white-space: pre-wrap;
 
       > .header {
         display: flex;
@@ -113,6 +112,9 @@
         background-color: var(--color-base_13);
         margin-left: 3.3em;
         box-shadow: 0 0 3px rgba(0,0,0,0.2);
+        white-space: pre-wrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
       }
     }
   }

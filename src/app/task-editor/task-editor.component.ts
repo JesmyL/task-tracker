@@ -99,6 +99,12 @@ export class TaskEditorComponent implements OnDestroy {
                     this.task = editedTask;
                     this.newComment = '';
                 });
+        } else {
+            this._notificationsService.info(
+                'Нет изменений',
+                `Никаких изменений небыло!`,
+                {timeOut: 5000}
+            );
         }
     }
 
