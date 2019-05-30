@@ -1,0 +1,29 @@
+html, body {
+  --color-base_1: #032138;
+  --color-base_2: #042b47;
+  --color-base_3: #d2e0ed;
+  --color-base_4: #93a4af;
+  --color-base_5: #7daed3;
+  --color-base_6: #038cef;
+  --color-base_7: #a7e6f6;
+  --color-base_8: #e1e2e6;
+  --color-base_9: #194976;
+  --color-base_10: #ebf3f6;
+  --color-base_11: #f9fafb;
+  --color-base_12: #69686c;
+  --color-base_13: #e3e9f4;
+
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.button {
+  border-radius: 20px;
+  background-color: var(--color-base_6);
+  color: white;
+  border: none;
+  outline: 0;
+  padding: 0.5em 1.7em;
+  cursor: pointer;
+}

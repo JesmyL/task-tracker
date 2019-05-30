@@ -1,0 +1,9 @@
+html, body {
+	--color-base_1: #032138;
+	--color-base_2: #042b47;
+	--color-base_4: #93a4af;
+
+
+	margin: 0;
+	padding: 0;
+}

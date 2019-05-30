@@ -1,0 +1,65 @@
+
+.page {
+  --menu-width: 100px;
+
+  font-family: arial;
+}
+
+.menu {
+  display: inline-block;
+  background-color: var(--color-base_1);
+  color: var(--color-base_4);
+  width: var(--menu-width);
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  user-select: none;
+
+  &-logo {
+    align-self: center;
+    text-align: center;
+    width: 100%;
+    margin: 15px 0;
+
+    > .logo {
+      height: 50px;
+    }
+  }
+
+  &-item {
+    align-self: center;
+    text-align: center;
+    width: 100%;
+
+    &-wrapper {
+      height: 70px;
+      display: flex;
+      outline: 0;
+      cursor: pointer;
+
+      &:hover {
+        background-color: var(--color-base_2);
+      }
+    }
+
+    &-label {
+      font-size: 12px;
+    }
+
+    &-icon {
+      max-width: 100%;
+      filter: invert(1);
+      width: 30px;
+    }
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.main-screen {
+  display: inline-block;
+  width: calc(100vw - var(--menu-width));
+  vertical-align: top;
+}

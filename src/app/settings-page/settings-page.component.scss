@@ -1,0 +1,35 @@
+
+.search-pane {
+	background-color: var(--color-base_3);
+	padding: 5px;
+
+	.search-input-pane {
+		border-radius: 20px;
+		border: solid 1px var(--color-base_5);
+		width: 50%;
+		background-color: white;
+		padding-left: 15px;
+
+		* {
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		.search-input {
+			width: calc(100% - 30px);
+			outline: 0;
+			border: none;
+		font-size: 25px;
+		cursor: pointer;
+
+		&:focus {
+			cursor: text;
+		}
+		}
+
+		.search-button {
+			cursor: pointer;
+			color: var(--color-base_4);
+		}
+	}
+}

@@ -1,0 +1,121 @@
+<div class="wrapper" *ngIf="task && task.id">
+    <div class="header">
+		<span class="edit-task">
+			<span class="task-id">№ {{task.id}}</span>
+			<span class="task-name">{{task.name}}</span>
+		</span>
+        <img class="close-button" (click)="close()" src="../assets/images/close.png" />
+    </div>
+
+    <div class="editor">
+        <div class="editor-body">
+            <div class="block">
+                <div class="name">Описание</div>
+                <div class="content">{{task.description}}</div>
+            </div>
+
+            <div class="block">
+                <div class="name">Добавление комментариев</div>
+                <textarea #comment class="content" (input)="newComment = comment.value" [value]="newComment"></textarea>
+            </div>
+
+            <button class="button save-button"
+                    (click)="edit(statusId.value, executorId.value)">Сохранить
+            </button>
+
+            <ng-container *ngFor="let ltItem of task.lifetimeItems">
+                <div *ngIf="ltItem.comment" class="comment-block">
+                    <div class="header">
+                        <div class="avatar"></div>
+                        <div class="details">
+                            <!--div class="name">{{ltItem.userName}}</div-->
+                            <div class="comment-at">{{ltItem.createdAt | date:'dd.MM, HH:mm прокомментировал'}}</div>
+                        </div>
+                    </div>
+                    <div class="content">{{ltItem.comment}}</div>
+                </div>
+            </ng-container>
+        </div>
+
+        <div class="editor-description">
+
+            <div class="point">
+                <div class="body">
+					<span class="status-badge"
+                          [style.background-color]="badgeRgb()"></span>
+                    <select #statusId
+                            class="selector status"
+                            (change)="currentStatusRgb = statusId.value">
+                        <option *ngFor="let status of statuses"
+                                class="status-item"
+                                [value]="status.id"
+                                [selected]="task.statusId === status.id">{{status.name}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="point">
+                <div class="title">Заявитель</div>
+                <div class="body">{{task.initiatorName}}</div>
+            </div>
+
+            <div class="point">
+                <div class="title">Создана</div>
+                <div class="body">{{task.createdAt | date:'dd.MM.yyyy г.'}}</div>
+            </div>
+
+            <div class="point">
+                <div class="title">Исполнитель</div>
+                <div class="body">
+                    <select #executorId class="selector">
+                        <option *ngFor="let user of users"
+                                [value]="user.id"
+                                [selected]="task.executorId === user.id">{{user.name}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="point">
+                <div class="title">Приоритет</div>
+                <div class="body">{{task.priorityName}}</div>
+            </div>
+
+            <div class="point">
+                <div class="title">Срок</div>
+                <div class="body"><i class="material-icons">date_range</i>{{task.resolutionDatePlan | date:'dd.MM.yyyy
+                    г.'}}
+                </div>
+            </div>
+
+            <div class="point">
+                <div class="title">Теги</div>
+                <div class="body">
+                    <div *ngFor="let tag of task.tags" class="tag">{{tag.name}}</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="wrapper" *ngIf="task && !task.id">
+    <div class="header">
+        <span>Новая заявка</span>
+        <img class="close-button" (click)="close()" src="../assets/images/close.png" />
+    </div>
+
+    <div class="creator-body">
+        <div class="creator-field">
+            <div class="creator-field-name">Название</div>
+            <textarea #name class="creator-field-textarea" rows="5"></textarea>
+        </div>
+        <div class="creator-field">
+            <div class="creator-field-name">Описание</div>
+            <textarea #description class="creator-field-textarea" rows="8"></textarea>
+        </div>
+        <button class="button save-button" (click)="create(name.value, description.value)">Сохранить</button>
+    </div>
+</div>

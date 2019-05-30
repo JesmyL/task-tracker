@@ -1,0 +1,212 @@
+
+.wrapper {
+  --width-editor-body: 70%;
+
+  position: absolute;
+  right: 0;
+  width: calc(100vw - 570px);
+  top: 0;
+  height: 100vh;
+  background-color: var(--color-base_10);
+  z-index: 7;
+
+  > .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: calc(1em + 27px) 1.5em 0 1.5em;
+    height: 3em;
+    background-color: var(--color-base_9);
+    color: white;
+
+    .edit-task {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: calc(100% - 150px);
+
+      .task-id {
+        margin-right: 1em;
+        white-space: nowrap;
+      }
+
+      .task-name {
+        max-height: 2.2em;
+        overflow: hidden;
+      }
+    }
+
+    .close-button {
+      cursor: pointer;
+      height: 14px;
+      color: white;
+      filter: invert(1);
+    }
+  }
+}
+
+.editor {
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: calc(100% - 93px);
+
+  > .editor-body {
+    display: inline-block;
+    vertical-align: top;
+    width: var(--width-editor-body);
+    border-right: solid 1px var(--color-base_8);
+    padding: 20px 30px;
+    min-height: calc(100% - 40px);
+
+    > .block {
+      > .name {
+        color: var(--color-base_4);
+        margin: 10px 0;
+      }
+
+      > textarea.content {
+        margin: 0 0 30px 0;
+        width: calc(100% - 5px);
+        height: 7em;
+        border: solid 1px var(--color-base_4);
+        resize: none;
+        border-radius: 5px;
+        background-color: transparent;
+        outline: none;
+      }
+
+      > .content {
+        white-space: pre-wrap;
+      }
+    }
+
+    > .comment-block {
+      white-space: pre-wrap;
+
+      > .header {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin: 1em 0;
+
+        > .avatar {
+          width: 40px;
+          height: 40px;
+          border-radius: 20px;
+          background-color: #f5f5f5;
+          border: 1px solid #c5cdd3;
+          margin-right: 1em;
+        }
+
+        > .details {
+
+          > .comment-at {
+            font-size: 12px;
+            color: var(--color-base_4);
+          }
+        }
+      }
+
+      > .content {
+        padding: 1em;
+        border-radius: 5px;
+        background-color: var(--color-base_13);
+        margin-left: 3.3em;
+        box-shadow: 0 0 3px rgba(0,0,0,0.2);
+      }
+    }
+  }
+
+  > .editor-description {
+    display: inline-block;
+    vertical-align: top;
+    width: calc(100% - var(--width-editor-body) - 61px);
+    padding: 20px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    min-height: 100%;
+
+    > .point {
+      margin: 30px 0;
+
+      > .title {
+        margin-bottom: 10px;
+        color: var(--color-base_4);
+      }
+
+      > .body {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+
+        > .material-icons {
+          vertical-align: sub;
+        }
+
+        .status-badge {
+          display: inline-block;
+          width: .7em;
+          height: .7em;
+          margin-right: .5em;
+          border-radius: 50%;
+        }
+
+        > .selector {
+          border: none;
+          background: none;
+          outline: 0;
+          cursor: pointer;
+          font-size: 16px;
+          appearance: none;
+
+          &.status {
+            max-width: calc(100% - 20px);
+          }
+        }
+
+        > .tag {
+          display: inline-block;
+          padding: .2em .5em;
+          background-color: white;
+          color: var(--color-base_4);
+          border: solid 1px var(--color-base_4);
+          border-radius: 1em;
+          margin-top: .5em;
+
+          &:not(:last-child) {
+            margin-right: .5em;
+          }
+        }
+      }
+    }
+  }
+}
+
+.creator-body {
+  padding: 20px 25px;
+
+  .creator-field {
+    width: 70%;
+    margin: 5px 0;
+
+    &-name {
+      margin: 12px 2px;
+      color: var(--color-base_4);
+      font-size: 14px;
+    }
+
+    &-textarea {
+      width: 100%;
+      background-color: var(--color-base_11);
+      border: solid 1px var(--color-base_8);
+      border-radius: 5px;
+      resize: none;
+      outline: 0;
+    }
+  }
+
+  .save-button {
+    margin-top: 50px;
+  }
+}

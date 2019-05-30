@@ -1,0 +1,122 @@
+
+.search-pane {
+  position: relative;
+  z-index: 10;
+  background-color: var(--color-base_3);
+  padding: 5px;
+
+  .search-input-pane {
+    border-radius: 20px;
+    border: solid 1px var(--color-base_5);
+    width: 50%;
+    min-width: 290px;
+    max-width: 600px;
+    background-color: white;
+    padding-left: 15px;
+
+    * {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .search-input {
+      width: calc(100% - 25px);
+      outline: 0;
+      border: none;
+      font-size: 25px;
+      cursor: pointer;
+
+      &:focus {
+        cursor: text;
+      }
+    }
+
+    .search-button {
+      cursor: pointer;
+      width: 16px;
+      transform: scalex(-1);
+    }
+  }
+}
+
+.tasks {
+  width: 100%;
+  overflow-y: auto;
+  height: calc(100vh - 43px);
+
+  .creation-panel {
+    padding: 10px 250px;
+  }
+
+  &-list {
+    width: 100%;
+    border-spacing: 0;
+    font-size: 14px;
+
+    &-heads {
+    }
+
+    .th:not(:first-child) span {
+      border-left: solid 1px var(--color-base_8);
+      padding-left: 1em;
+    }
+
+    .th {
+      padding: .5em;
+      text-align: left;
+      border-bottom: solid 1px var(--color-base_8);
+      color: var(--color-base_1);
+    }
+
+    .cell {
+      padding-right: 1em;
+      height: 4em;
+      overflow: hidden;
+      border-bottom: solid 1px var(--color-base_8);
+      cursor: pointer;
+      color: var(--color-base_12);
+
+      &:not(.id-cell) {
+        padding-left: 1em;
+      }
+    }
+
+    .id-cell {
+      width: 5em;
+      white-space: nowrap;
+
+      > .priority-line {
+        display: inline-block;
+        vertical-align: middle;
+        height: 100%;
+        width: 5px;
+        margin-right: 1.5em;
+      }
+    }
+
+    .name-cell {
+      width: 25em;
+
+      &-container {
+        max-height: 2.2em;
+        overflow: hidden;
+      }
+    }
+
+    .status-cell {
+      width: 5em;
+
+      .status-badge {
+        display: inline-block;
+        padding: .2em 1em;
+        border-radius: 1em;
+        color: white;
+        max-width: 100%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        vertical-align: middle;
+      }
+    }
+  }
+}

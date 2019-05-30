@@ -1,0 +1,19 @@
+<div class="page">
+    <div class="menu">
+        <div class="menu-logo">
+            <img class="logo" src="../assets/images/logo.png"/>
+        </div>
+        <div *ngFor="let field of fields"
+             class="menu-item-wrapper"
+             routerLink="/{{field.id}}">
+            <div class="menu-item">
+                <img class="menu-item-icon" src="../assets/images/{{field.icon}}.png"/>
+                <div class="menu-item-label">{{field.label}}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-screen">
+        <router-outlet></router-outlet>
+    </div>
+</div>

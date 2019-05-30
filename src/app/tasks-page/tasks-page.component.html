@@ -1,0 +1,36 @@
+<div class="search-pane">
+    <div class="search-input-pane">
+        <input class="search-input"/>
+        <img class="search-button" src="../assets/images/search.png"/>
+    </div>
+</div>
+
+<div class="tasks">
+    <div class="creation-panel">
+        <button class="button" (click)="newTask()">Создать заявку</button>
+    </div>
+    <table class="tasks-list">
+        <tr class="tasks-list-heads">
+            <th class="id-cell th"><span>ID</span></th>
+            <th class="name-cell th"><span>Название</span></th>
+            <th class="status-cell th"><span>Статус</span></th>
+            <th class="executor-cell th"><span>Исполнитель</span></th>
+        </tr>
+        <tr *ngFor="let task  of tasks" class="tasks-heads" (click)="editTask(task.id)">
+            <td class="id-cell cell">
+                <div class="priority-line" [style.backgroundColor]="priorityRgb(task.priorityId)"></div>
+                {{task.id}}
+            </td>
+            <td class="name-cell cell">
+                <div class="name-cell-container">{{task.name}}</div>
+            </td>
+            <td class="status-cell cell">
+                <span class="status-badge" [style.backgroundColor]="task.statusRgb">{{task.statusName}}</span>
+            </td>
+            <td class="executor-cell cell">{{task.executorName}}</td>
+        </tr>
+    </table>
+</div>
+
+
+<app-task-editor></app-task-editor>
